@@ -1,0 +1,65 @@
+{
+  "name": "masterbuilder-style-guide",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oninross/create-component  .git"
+  },
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "cli",
+    "react",
+    "style-guide",
+    "scaffold"
+  ],
+  "main": "index.js",
+  "files": [
+    "configs",
+    ".vscode",
+    "bin"
+  ],
+  "bin": {
+    "masterbuilder-style": "bin/masterbuilder-style.js"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "check:lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "check:format": "prettier --check .",
+    "check:types": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "typescript": "^5.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "@types/jest": "^29.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md,css,scss}": [
+      "prettier --write"
+    ]
+  }
+}
