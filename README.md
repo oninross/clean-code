@@ -1,4 +1,4 @@
-# masterbuilder-style-guide
+# @oninross/masterbuilder-style-guide
 
 Opinionated linting, formatting, and TS + Jest setup for projects.
 
@@ -14,7 +14,7 @@ Opinionated linting, formatting, and TS + Jest setup for projects.
 ## Installation
 
 ```
-npm i -D masterbuilder-style-guide
+npm i -D @oninross/masterbuilder-style-guide
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ Extend configs:
 ```
 module.exports = {
   extends: [
-    'masterbuilder-style-guide',
+    '@oninross/masterbuilder-style-guide',
   ],
 };
 ```
@@ -49,7 +49,7 @@ module.exports = {
 ```
 module.exports = {
   extends:
-  ["masterbuilder-style-guide/configs/.eslintrc.js"]
+  ["@oninross/masterbuilder-style-guide/configs/.eslintrc.js"]
 };
 ```
 
@@ -60,7 +60,7 @@ or
 ```
 {
   "extends": [
-    "masterbuilder-style-guide/configs/.eslintrc.js"
+    "@oninross/masterbuilder-style-guide/configs/.eslintrc.js"
   ]
 }
 ```
@@ -69,18 +69,18 @@ or
 
 ```
 {
-  "extends": "masterbuilder-style-guide/configs/tsconfig.json"
+  "extends": "@oninross/masterbuilder-style-guide/configs/tsconfig.json"
 }
 ```
 
 ### .prettierrc.js
 
 ```
-const msg = require('masterbuilder-style-guide');
+const msg = require('@oninross/masterbuilder-style-guide');
 
 module.exports = {
   ...msg,
-  const msg = require('masterbuilder-style-guide');
+  const msg = require('@oninross/masterbuilder-style-guide');
 
 module.exports = {
   ...msg,
@@ -116,7 +116,7 @@ npx masterbuilder-style test  # run jest tests
 And devs can immediately use it:
 
 ```
-npm i -D masterbuilder-style-guide
+npm i -D @oninross/masterbuilder-style-guide
 ```
 
 ```
