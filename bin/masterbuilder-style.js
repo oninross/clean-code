@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { execSync } = require("child_process");
+import { execSync } from "child_process";
 const args = process.argv.slice(2);
 const command = args[0];
 
