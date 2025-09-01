@@ -34,75 +34,12 @@ Extend configs:
 }
 ```
 
-### .edlintrc.js
-
-```
-module.exports = {
-  extends: [
-    '@oninross/masterbuilder-style-guide',
-  ],
-};
-```
-
-### .eslintrc.js
-
-```
-module.exports = {
-  extends:
-  ["@oninross/masterbuilder-style-guide/configs/.eslintrc.js"]
-};
-```
-
-or
-
-### .eslintrc.json
-
-```
-{
-  "extends": [
-    "@oninross/masterbuilder-style-guide/configs/.eslintrc.js"
-  ]
-}
-```
-
 ### tsconfig.json
 
 ```
 {
   "extends": "@oninross/masterbuilder-style-guide/configs/tsconfig.json"
 }
-```
-
-### .prettierrc.js
-
-```
-const msg = require('@oninross/masterbuilder-style-guide');
-
-module.exports = {
-  ...msg,
-  const msg = require('@oninross/masterbuilder-style-guide');
-
-module.exports = {
-  ...msg,
-  // Note tab width purposefully not configured,
-  // to allow developer preference in their IDE
-  useTabs: false,
-
-  // { foo: bar } as opposed to {foo:bar}, for readability
-  bracketSpacing: true,
-
-  // Single quotes for strings, except in JSX
-  singleQuote: true,
-  quoteProps: 'consistent',
-  jsxSingleQuote: false,
-  jsxBracketSameLine: false,
-
-  // Trailing commas for improved diff
-  trailingComma: 'all',
-
-  // enforce LF for line breaks
-  endOfLine: 'lf',
-};
 ```
 
 ### CLI
