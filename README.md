@@ -21,24 +21,91 @@ npm i -D masterbuilder-style-guide
 
 Extend configs:
 
-```
-// .eslintrc.js
+### package.json
 
+```
+{
+  "scripts": {
+    "check:format": "prettier --check './**/*.{js,jsx,ts,tsx,json}' --ignore-path .prettierignore --config ./.prettierrc.js",
+    "check:lint": "next lint",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,json}' --ignore-path .prettierignore --config ./.prettierrc.js",
+    "lint": "next lint"
+  }
+}
+```
+
+### .edlintrc.js
+
+```
+module.exports = {
+  extends: [
+    'masterbuilder-style-guide',
+  ],
+};
+```
+
+### .eslintrc.js
+
+```
 module.exports = {
   extends:
   ["masterbuilder-style-guide/configs/.eslintrc.js"]
 };
 ```
 
-```
-// tsconfig.json
+or
 
+### .eslintrc.json
+
+```
+{
+  "extends": [
+    "masterbuilder-style-guide/configs/.eslintrc.js"
+  ]
+}
+```
+
+### tsconfig.json
+
+```
 {
   "extends": "masterbuilder-style-guide/configs/tsconfig.json"
 }
 ```
 
-CLI
+### .prettierrc.js
+
+```
+const msg = require('masterbuilder-style-guide');
+
+module.exports = {
+  ...msg,
+  const msg = require('masterbuilder-style-guide');
+
+module.exports = {
+  ...msg,
+  // Note tab width purposefully not configured,
+  // to allow developer preference in their IDE
+  useTabs: false,
+
+  // { foo: bar } as opposed to {foo:bar}, for readability
+  bracketSpacing: true,
+
+  // Single quotes for strings, except in JSX
+  singleQuote: true,
+  quoteProps: 'consistent',
+  jsxSingleQuote: false,
+  jsxBracketSameLine: false,
+
+  // Trailing commas for improved diff
+  trailingComma: 'all',
+
+  // enforce LF for line breaks
+  endOfLine: 'lf',
+};
+```
+
+### CLI
 
 ```
 npx masterbuilder-style fix   # format + lint + type-check
