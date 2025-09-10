@@ -1,9 +1,9 @@
 {
-  "name": "@oninross/masterbuilder-style-guide",
-  "version": "1.0.1",
+  "name": "@oninross/clean-code",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oninross/create-component  .git"
+    "url": "https://github.com/oninross/clean-code.git"
   },
   "license": "Apache-2.0",
   "keywords": [
@@ -19,7 +19,8 @@
     "bin"
   ],
   "bin": {
-    "masterbuilder-style": "bin/masterbuilder-style.js"
+    "clean-code-style": "bin/clean-code-style.js",
+    "@oninross/clean-code": "bin/install.js"
   },
   "scripts": {
     "prepare": "husky install",
