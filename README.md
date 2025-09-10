@@ -57,5 +57,5 @@ npm i -D @oninross/clean-code
 ```
 
 ```
-npx clean-code-style fix
+npx @oninross/clean-code fix
 ```
