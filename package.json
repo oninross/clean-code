@@ -1,6 +1,6 @@
 {
   "name": "@oninross/clean-code",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/oninross/clean-code.git"
@@ -23,7 +23,7 @@
   ],
   "bin": {
     "clean-code": "bin/clean-code.js",
-    "@oninross/clean-code": "bin/install.js"
+    "@oninross/clean-code": "bin/clean-code.js"
   },
   "scripts": {
     "prepare": "husky install",
