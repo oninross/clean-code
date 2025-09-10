@@ -1,8 +1,28 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "path";
 const args = process.argv.slice(2);
-const command = args[0];
+
+let command = args[0];
+
+// Support --fix, --check, --test and -f, -c, -t flags
+if (!command || command.startsWith("-")) {
+  if (args.includes("--fix") || args.includes("-f")) command = "fix";
+  else if (args.includes("--check") || args.includes("-c")) command = "check";
+  else if (args.includes("--test") || args.includes("-t")) command = "test";
+}
+
+if (args.includes("--install") || args.includes("-i")) {
+  // Run install.js in the same directory
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
+  const installPath = resolve(__dirname, "install.js");
+  const { spawnSync } = await import("child_process");
+  const result = spawnSync("node", [installPath], { stdio: "inherit" });
+  process.exit(result.status);
+}
 
 const scripts = {
   fix: ["npm run format", "npm run lint", "npm run type-check"],
