@@ -11,7 +11,7 @@ const scripts = {
 };
 
 if (!command || !scripts[command]) {
-  console.log("Usage: masterbuilder-style <command>");
+  console.log("Usage: clean-code-style <command>");
   console.log("Commands:");
   console.log("  fix    -> format + lint + type-check");
   console.log(
