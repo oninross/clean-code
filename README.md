@@ -45,9 +45,9 @@ Extend configs:
 ### CLI
 
 ```
-npx clean-code-style fix   # format + lint + type-check
-npx clean-code-style check # check only
-npx clean-code-style test  # run jest tests
+npx clean-code fix   # format + lint + type-check
+npx clean-code check # check only
+npx clean-code test  # run jest tests
 ```
 
 And devs can immediately use it:
