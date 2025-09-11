@@ -18,6 +18,7 @@ function extendPackageJson() {
     format:
       "prettier --write './**/*.{js,jsx,ts,tsx,json}' --ignore-path .prettierignore --config ./.prettierrc.js",
     lint: "next lint",
+    "type-check": "tsc --noEmit",
   };
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
   console.log("package.json updated");
@@ -34,5 +35,35 @@ function extendTsconfigJson() {
   console.log("tsconfig.json updated");
 }
 
+function createPrettierIgnore() {
+  const prettierIgnorePath = path.resolve(process.cwd(), ".prettierignore");
+  const content = `node_modules
+dist
+build
+coverage
+.next
+`;
+  fs.writeFileSync(prettierIgnorePath, content);
+  console.log(".prettierignore created/updated");
+}
+
+function createPrettierRc() {
+  const prettierRcPath = path.resolve(process.cwd(), ".prettierrc.js");
+  const content = `module.exports = {
+  semi: true,
+  singleQuote: false,
+  endOfLine: "lf",
+  tabWidth: 2,
+  bracketSpacing: true,
+  printWidth: 100,
+  trailingComma: "es5",
+};
+`;
+  fs.writeFileSync(prettierRcPath, content);
+  console.log(".prettierrc.js created/updated");
+}
+
 extendPackageJson();
 extendTsconfigJson();
+createPrettierIgnore();
+createPrettierRc();
