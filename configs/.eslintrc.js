@@ -7,12 +7,13 @@ module.exports = {
     sourceType: "module",
     project: "./tsconfig.json",
   },
-  plugins: ["prettier", "simple-import-sort", "@typescript-eslint"],
+  plugins: ["prettier", "import", "@typescript-eslint"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
+    "plugin:import/typescript",
   ],
   rules: {
     "prettier/prettier": [
@@ -27,19 +28,32 @@ module.exports = {
         trailingComma: "es5",
       },
     ],
-    "simple-import-sort/imports": [
+    "import/order": [
       "error",
       {
         groups: [
-          ["^\\w"],
-          ["^@"],
-          ["^\\."],
-          ["^.*\\.types$"],
-          ["^.*\\.(css|scss|sass)$"],
+          ["builtin"],
+          ["external"],
+          ["internal"],
+          ["parent", "sibling", "index"],
+          ["object", "type"],
+          ["unknown"],
         ],
+        pathGroups: [
+          {
+            pattern: "@/**",
+            group: "internal",
+            position: "after",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["builtin"],
+        alphabetize: { order: "asc", caseInsensitive: true },
+        "newlines-between": "always",
+        warnOnUnassignedImports: true,
       },
     ],
-    "simple-import-sort/exports": "error",
+    "import/newline-after-import": ["error", { count: 1 }],
+    "import/no-duplicates": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
